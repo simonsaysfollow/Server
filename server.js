@@ -4,15 +4,15 @@ const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
 app.use(express.json());
-const uuid = require('uuid/v4')
-const session = require('express-session');
+// const uuid = require('uuid/v4')
+// const session = require('express-session');
 
-app.use(session({
-    genid: function (req) {
-        return uuid() // use UUIDs for session IDs
-    },
-    secret: 'Password'
-}))
+// app.use(session({
+//     genid: function (req) {
+//         return uuid() // use UUIDs for session IDs
+//     },
+//     secret: 'Password'
+// }))
 
 /////////////////////////////////////////////
 // Logger & configuration
@@ -43,7 +43,7 @@ app.post('/data/', (request) => {
     let mods = [];
     for (let item of data['businesses']) {
         item.liked = false;
-        item.session = request.sessionID;
+        item.session = false//request.sessionID;
         mods.push(item);
     }
 
