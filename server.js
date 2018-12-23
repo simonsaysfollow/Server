@@ -25,7 +25,7 @@ app.use(logger);
 
 // grabs random data from from mlab data base
 
-app.get("/", (request, response) => {
+app.get("https://nameless-plateau-88597.herokuapp.com/", (request, response) => {
     console.log("s")
     db.collection('datas')
         .aggregate([{ $sample: { size: 1 } }])
@@ -37,7 +37,7 @@ app.get("/", (request, response) => {
 
 
 //adds data to mlab db
-app.post('/data/', (request) => {
+app.post('https://nameless-plateau-88597.herokuapp.com/data/', (request) => {
    
     const data = request.body;
     let mods = [];
