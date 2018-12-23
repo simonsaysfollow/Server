@@ -25,7 +25,7 @@ app.use(logger);
 
 // grabs random data from from mlab data base
 
-app.get("https://nameless-plateau-88597.herokuapp.com/", (request, response) => {
+app.get("/", (request, response) => {
     console.log("s")
     db.collection('datas')
         .aggregate([{ $sample: { size: 1 } }])
@@ -37,7 +37,7 @@ app.get("https://nameless-plateau-88597.herokuapp.com/", (request, response) => 
 
 
 //adds data to mlab db
-app.post('https://nameless-plateau-88597.herokuapp.com/data/', (request) => {
+app.post('/data/', (request) => {
    
     const data = request.body;
     let mods = [];
@@ -55,7 +55,7 @@ app.post('https://nameless-plateau-88597.herokuapp.com/data/', (request) => {
 });
 
 //updates db for items swiped right(good)
-app.post("https://nameless-plateau-88597.herokuapp.com/change/",(request,response)=>{
+app.post("/change/",(request,response)=>{
     console.log("are you entering?")
     let info = request.body;
     let idString = info['id']; 
@@ -65,7 +65,7 @@ app.post("https://nameless-plateau-88597.herokuapp.com/change/",(request,respons
 
 })
 // return list of all items with liked == true
-app.get("https://nameless-plateau-88597.herokuapp.com/truevalues/",(request,response)=>{
+app.get("/truevalues/",(request,response)=>{
     db.collection('datas')
         //.find({"liked":true })
         .aggregate([
