@@ -55,7 +55,7 @@ app.post('https://nameless-plateau-88597.herokuapp.com/data/', (request) => {
 });
 
 //updates db for items swiped right(good)
-app.post("/change/",(request,response)=>{
+app.post("https://nameless-plateau-88597.herokuapp.com/change/",(request,response)=>{
     console.log("are you entering?")
     let info = request.body;
     let idString = info['id']; 
@@ -65,7 +65,7 @@ app.post("/change/",(request,response)=>{
 
 })
 // return list of all items with liked == true
-app.get("/truevalues/",(request,response)=>{
+app.get("https://nameless-plateau-88597.herokuapp.com/truevalues/",(request,response)=>{
     db.collection('datas')
         //.find({"liked":true })
         .aggregate([
